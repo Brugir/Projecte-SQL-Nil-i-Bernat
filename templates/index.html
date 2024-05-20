@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/css/index.css">
+    <title>Contaminacion BCN</title>
+</head>
+<body>
+    <div id="wrapper">
+        <div class="container-contamination">
+            <header>
+                <h1 class="h1-BCN-header">Contaminacion en BCN</h1>
+            </header>
+            <main class="container-form main-bcn">
+                <section>
+                    <div class="wrapper">
+                        <div class="texto-de-bienvenida">
+                            <h2>Bienvenido</h2>
+        
+                            <p>Ingrese el barrio (de barcelona) y la fecha que deseas ver.</p>
+                        
+                        </div>
+                        <div class="container-form">
+                            <form action="/result" method="post">
+                                <ul class="form-contaminations-ul">
+                                    <li class="contaminacion-li">
+                                        <select name="neighborhood" id="neighborhood">
+                                            {% for neighborhood in list %}
+                                                <option value="{{ neighborhood }}">{{ neighborhood }}</option>
+                                            {% endfor %}
+                                        </select>
+                                    </li>
+                                    <li class="contaminacion-li">
+                                        <input type="number" name="date" id="date" placeholder="Dia" min="1" max="31">
+                                    </li>
+                                    <li class="contaminacion-li">
+                                        <input type="submit" value="Buscar">
+                                    </li>
+                                </ul> 
+                            </form>
+                        </div>
+                        <p class="error_message">{{error_message}}</p>
+                    </div>
+                </section>
+            </main>
+        </div>
+    </div>
+</body>
+</html>
